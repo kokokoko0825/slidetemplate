@@ -1,0 +1,171 @@
+/* Google Fonts - Kosugi Maru */
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+/* CSS変数でダークモードとライトモードの色を定義 */
+:root {
+  /* ライトモード */
+  --slidev-theme-bg: #FFF5F0;
+  --slidev-theme-text: #7E5D54;
+  --slidev-theme-accent: #D6D474;
+  /* コードブロックの背景色（アクセントカラーを薄めた色） */
+  --slidev-code-bg: rgba(214, 212, 116, 0.15);
+}
+
+html.dark {
+  /* ダークモード */
+  --slidev-theme-bg: #03031B;
+  --slidev-theme-text: #DEDBFF;
+  --slidev-theme-accent: #B8B5FF;
+  /* コードブロックの背景色（背景色を少し明るくした色） */
+  --slidev-code-bg: rgba(44, 46, 71, 0.6);
+}
+
+/* フォントファミリーを設定 */
+body,
+.slidev-page,
+.slidev-layout {
+  font-family: 'Kosugi Maru', sans-serif !important;
+}
+
+/* 背景色とテキストカラーを強制的に適用 */
+.slidev-page,
+.slidev-layout,
+.slidev-layout-default,
+.slidev-layout-intro,
+.slidev-layout-cover,
+.slidev-layout-section,
+.slidev-layout-center,
+.slidev-layout-two-cols,
+.slidev-layout-image-right,
+#page-root,
+#slide-container {
+  background-color: var(--slidev-theme-bg) !important;
+  background: var(--slidev-theme-bg) !important;
+  background-image: none !important;
+  color: var(--slidev-theme-text) !important;
+}
+
+/* 表紙（intro）レイアウトの背景を確実に適用 */
+.slidev-layout-intro,
+.slidev-layout-cover {
+  background: var(--slidev-theme-bg) !important;
+  background-image: none !important;
+  background-color: var(--slidev-theme-bg) !important;
+  background-size: auto !important;
+}
+
+/* seriphテーマの背景グラデーションを無効化 */
+.slidev-layout-intro[style*="gradient"],
+.slidev-layout-cover[style*="gradient"],
+.slidev-layout[style*="gradient"],
+.slidev-page[style*="gradient"] {
+  background: var(--slidev-theme-bg) !important;
+  background-image: none !important;
+  background-color: var(--slidev-theme-bg) !important;
+}
+
+/* 表紙のテキストカラーを確実に適用 */
+.slidev-layout-intro *,
+.slidev-layout-cover * {
+  color: var(--slidev-theme-text) !important;
+}
+
+/* 通常のh1, h2のスタイル - デフォルトでは通常の位置に配置 */
+.slidev-layout h1,
+.slidev-layout h2 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  text-align: left !important;
+}
+
+.slidev-layout h1 {
+  color: var(--slidev-theme-text) !important;
+  font-size: 3em !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5em !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.slidev-layout h2 {
+  color: var(--slidev-theme-text) !important;
+  font-size: 2.5em !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5em !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* text-centerクラスがある場合は中央配置 */
+.slidev-layout.text-center h1,
+.slidev-layout.text-center h2 {
+  text-align: center !important;
+}
+
+/* アクセントカラーを適用 */
+a,
+.slidev-layout strong {
+  color: var(--slidev-theme-accent) !important;
+}
+
+/* インラインコードのスタイル - 背景色はテキストカラーの50%透明度 */
+.slidev-layout code:not(pre code),
+.slidev-layout p code,
+.slidev-layout li code,
+.slidev-layout td code,
+.slidev-layout th code {
+  background-color: var(--slidev-code-bg) !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.9em !important;
+  font-family: 'Kosugi Maru', monospace !important;
+  /* フォントカラーはデフォルトのまま（テーマのテキストカラーを適用しない） */
+}
+
+/* コードブロックのスタイル - 背景色はテキストカラーの50%透明度 */
+.slidev-layout pre,
+.slidev-layout pre.shiki,
+.slidev-layout .shiki,
+.slidev-layout .code-wrapper,
+.slidev-layout .shiki-container {
+  background-color: var(--slidev-code-bg) !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+}
+
+/* コードブロック内のコード要素 - デフォルトのシンタックスハイライトカラーを使用 */
+.slidev-layout pre code,
+.slidev-layout pre.shiki code,
+.slidev-layout .shiki code {
+  background-color: transparent !important;
+  /* フォントカラーはShikiのデフォルトのシンタックスハイライトを使用 */
+}
+
+/* Shikiのシンタックスハイライトスタイルはデフォルトのまま */
+/* 行番号などのスタイルもデフォルトのまま */
+
+/* リンクのスタイル */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  opacity: 0.8 !important;
+  text-decoration: underline !important;
+}
+
+/* 他のレイアウト（two-colsなど）ではh1, h2を通常の表示に戻す */
+.slidev-layout-two-cols h1,
+.slidev-layout-two-cols h2,
+.slidev-layout-image-right h1,
+.slidev-layout-image-right h2,
+.slidev-layout-center h1,
+.slidev-layout-center h2 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  text-align: left !important;
+}
